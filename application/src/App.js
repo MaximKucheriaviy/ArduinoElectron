@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { Box, Button } from "@mui/material";
+import { PortConnecting } from "./components/PortConnecting/PortConnecting";
 
 function App() {
+  const echoClick = () => {
+    window.mainApi.sendArduinoCommand("echo");
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <PortConnecting />
+      <Box>
+        <Button onClick={echoClick} variant="contained">
+          echo
+        </Button>
+      </Box>
     </div>
   );
 }
